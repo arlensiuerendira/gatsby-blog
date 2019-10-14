@@ -16,7 +16,6 @@ const makeRequest = (graphql, request) => new Promise((resolve, reject) => {
       if (result.errors) {
         reject(result.errors)
       }
-
       return result;
     })
   )
@@ -74,5 +73,5 @@ exports.createPages = ({ actions, graphql }) => {
   });
 
   // Query for articles nodes to use in creating pages.
-  return Promise.all({ getArticles, getAuthors })
+  return Promise.all([getArticles, getAuthors])
 };
